@@ -5,13 +5,13 @@
                 <input type="text" placeholder="search..." v-model="searchword">
             </form>
             <div class="search-icons">
-                <i v-if="!isBusy" class="fas fa-search" @click="fetchSearchNews"></i>
+                <i v-if="!isBusy" class="fas fa-search pointer" @click="fetchSearchNews"></i>
                 <i v-else class="fas fa-spinner fa-spin"></i>
-                <i class="fas fa-times" @click="fetchTopNews"></i>
+                <i class="fas fa-times pointer" @click="fetchTopNews"></i>
             </div>
         </div>
         <div class="result-list">
-           <article v-for="(article, index) in articles" :key="index" @click="navTo(article.url)">
+           <article v-for="(article, index) in articles" :key="index" @click="navTo(article.url)" class="pointer">
                 <header>
                     <img v-if="article.urlToImage" :src="article.urlToImage" alt="">
                     <i v-else class="fas fa-image"></i>
@@ -21,7 +21,7 @@
                 </header>
                 
                 <footer>
-                <i class="fas fa-chevron-right"></i>
+                <button>View Article</button>
                 </footer>
            </article>
         </div>
@@ -126,5 +126,21 @@ export default{
 </script>
 
 <style>
+
+.container{
+    margin: 0 auto;
+}
+
+.result-list{
+    text-align: center;
+}
+
+article{
+    border: 1px solid black;
+}
+
+img {
+    width: 100%;
+  }
 
 </style>
