@@ -9,6 +9,11 @@
                 <i v-else class="fas fa-spinner fa-spin"></i>
                 <i class="fas fa-times pointer" @click="fetchTopNews"></i>
             </div>
+
+            <div class="filter-options">
+                <button :class="{active: countryPageClick == true }" @click="fetchTopNews">Top Headlines By Country</button>
+                <button :class="{active: englishPageClick == true }" @click="fetchEnglishNews">English Only Articles</button>
+            </div>
         </div>
         <div class="result-list">
            <article v-for="(article, index) in articles" :key="index" @click="navTo(article.url)" class="pointer">
@@ -21,7 +26,7 @@
                 </header>
                 
                 <footer>
-                <button>View Article</button>
+                <button class="pointer">View Article</button>
                 </footer>
            </article>
         </div>
@@ -49,6 +54,8 @@ export default{
             searchword: '',
             articles: [],
             country: 'nz',
+            countryPageClick: true,
+            englishPageClick: false
         }
     },
     computed:{
@@ -77,6 +84,15 @@ export default{
             }
             
         },
+        fetchEnglishNews() {
+            this.apiUrl = 'https://newsapi.org/v2/top-headlines?language=en&pageSize=' + this.maxPerPage + '&apiKey=' + this.apiKey;
+            this.isBusy = true;
+
+            this.resetData();
+            this.fetchData(); 
+            this.countryPageClick = false,
+            this.englishPageClick = true
+        },
         fetchTopNews() {
             this.apiUrl = 'https://newsapi.org/v2/top-headlines?country=' + this.country + '&pageSize=' + this.maxPerPage + '&apiKey=' + this.apiKey;
             this.isBusy = true;
@@ -84,6 +100,10 @@ export default{
 
             this.resetData();
             this.fetchData();
+
+            // if(countrySelect != 'nz'){
+            //     this.country = this.countrySelect.value
+            // }
         },
         fetchData(){
             let req = new Request(this.apiUrl + '&page=' + this.currentPage);

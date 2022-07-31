@@ -51,9 +51,9 @@ export default {
   .pointer {cursor: pointer;}
   
   button {
-    background-color: #4CAF50; /* Green */
     border: none;
-    color: white;
+    background-color: blanchedalmond;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -62,6 +62,7 @@ export default {
   }
   .active {
     color: blueviolet;
+    border-bottom: 1px solid blueviolet;
   }
 
   
