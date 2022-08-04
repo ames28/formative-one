@@ -1,14 +1,43 @@
 <template>
-<div><h1>hello this is the about page</h1>  
- <div> <h3>About the Developer</h3> </div> 
- <div><h3>About the Project</h3></div></div>
+
+<div class="aboutContainer">
+    <div>
+        <h1>About the <i>What's The Story?</i> news app</h1>  
+        <h4>Hello, My name is Amy. <br> I am a Web Design Student from New Zealand.</h4> 
+        <h4>What's The Story was created as part of a class assignment.</h4>
+    </div>
+    <div>
+        <img src="../assets/webdesign.gif" alt="">
+    </div>
+    
+</div>
  
 </template>
 
-<script>
-
-</script>
-
 <style>
 
+.aboutContainer{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: antiquewhite;
+    color: black;
+}
+
+.aboutContainer h4{
+    color:black;
+}
+
+@media screen and (max-width: 800px) {
+    
+.aboutContainer{
+    flex-direction: column;
+    text-align: center;
+}
+
+.aboutContainer img{
+    width: 50%;
+}
+}
 </style>

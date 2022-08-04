@@ -1,7 +1,9 @@
 <template>
   <div id="appContainer">
-    <button @click="newsButton()" class="pointer" :class="{active: newsFeedClick == true }">News Feed</button>
-    <button @click="aboutButton()" class="pointer" :class="{active: aboutPageClick == true }">About Page</button>
+    <div id="mainButtons">
+        <button @click="newsButton()" class="pointer mainButton" :class="{active: newsFeedClick == true }">News Feed</button>
+        <button @click="aboutButton()" class="pointer mainButton" :class="{active: aboutPageClick == true }">About Page</button>
+    </div>
     <NewsApp :apiKey="apiKey" v-show="newsFeedClick" />
     <AboutPage v-show="aboutPageClick" />
   </div>
@@ -41,19 +43,20 @@ export default {
 <style>
 
 @import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
   
   #appContainer {
-   background-color: blanchedalmond;
-   width: 90%;
+   background-color: white;
+   width: 100%;
    margin: 0 auto;
   }
 
   .pointer {cursor: pointer;}
   
-  button {
+  .mainButton {
     border: none;
-    background-color: blanchedalmond;
-    color: black;
+    background-color: blueviolet;
+    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -61,10 +64,18 @@ export default {
     font-size: 16px;
   }
   .active {
-    color: blueviolet;
-    border-bottom: 1px solid blueviolet;
+    color: white;
+    border-bottom: 1px solid white;
   }
 
-  
-  
+  #mainButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    background: blueviolet;
+
+  } 
+
 </style>

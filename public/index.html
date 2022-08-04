@@ -6,7 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="stylesheet" href="https://use.typekit.net/bmt4nzd.css">
+  <title>What's The Story? || News App</title>
+  <style>
+    #header {
+      text-align: center;
+    }
+
+    body {
+      font-family: 'Questrial', sans-serif;
+      background-color: antiquewhite;
+    }
+
+    #header h1 {
+      color: black;
+      font-size: 50px;
+      font-family: obviously, sans-serif;
+      font-weight: 900;
+      font-style: italic;
+    }
+
+    @media screen and (max-width: 800px) {
+
+      #header h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -15,7 +41,7 @@
       Please enable it to continue.</strong>
   </noscript>
   <div id="header">
-    <h1>News App</h1>
+    <h1>WHAT'S THE STORY?</h1>
   </div>
   <div id="app"></div>
   <!-- built files will be auto injected -->
